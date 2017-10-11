@@ -24,7 +24,7 @@ import os.path
 import subprocess
 
 def gzip_yesterday(yesterday):
-  print "gzip_yesterday"
+  #print "gzip_yesterday"
   out = None
   fname = args.target_folder+"/"+args.target_file+"_"+yesterday+".json"  
   if os.path.isfile(fname):
@@ -34,7 +34,7 @@ def gzip_yesterday(yesterday):
   return out
 
 def save():
-  print "save"
+  #print "save"
 
   # Kafka
   consumer = KafkaConsumer(bootstrap_servers=args.kafka_bootstrap_srvs, group_id=args.kafka_group_id)
@@ -69,5 +69,3 @@ if __name__ == '__main__':
   args = parser.parse_args()
   #
   save()
-
-
