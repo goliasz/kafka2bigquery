@@ -1,0 +1,5 @@
+test.sh
+*.log
+*.json
+*.json.gz
+

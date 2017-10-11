@@ -42,6 +42,7 @@ def save():
 
   for msg in consumer:
     #
+    #print msg.value
     indata = json.loads(msg.value)
     #print indata
     #
