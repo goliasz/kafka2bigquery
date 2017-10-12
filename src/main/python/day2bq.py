@@ -25,7 +25,9 @@ import subprocess
 def push_day(day):
   # We are appending day since we are assuming the table is partitioned
   table = args.bq_tab+day
+  print "table",table
   fname = args.data_folder+"/"+args.file_prefix+day+args.file_suffix 
+  print "fname",fname
   cmd = (args.bq_location+'__--nouse_gce_service_account__--application_default_credential_file='+args.key_location+'__load__--noautodetect__--replace__--source_format=NEWLINE_DELIMITED_JSON__'+table+'__'+fname+'__'+args.bq_tab_schema).split("__")
   print "cmd:",cmd
   subprocess.check_call(cmd)
