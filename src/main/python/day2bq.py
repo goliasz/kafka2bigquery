@@ -43,8 +43,12 @@ if __name__ == '__main__':
   parser.add_argument('--bq_tab_schema', default="src/main/json/table_schema.json")
   parser.add_argument('--bq_tab', default="project:dataset.table$")
   parser.add_argument('--rm_after_upload', default="no")
+  parser.add_argument('--day', default="")
   #
   args = parser.parse_args()
 
   yesterday = datetime.strftime(datetime.now() - timedelta(1), '%Y%m%d')
-  push_day(yesterday)
+  if args.day:
+    push_day(args.day)
+  else:
+    push_day(yesterday)
