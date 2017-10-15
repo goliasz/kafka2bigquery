@@ -34,11 +34,11 @@ def push_day(day):
     print "cmd:",cmd
     subprocess.check_call(cmd)
   else:
-    table = args.new_bq_tab
+    table = args.new_bq_tab+day
     print "table",table
     fname = args.data_folder+"/"+args.file_prefix+day+args.file_suffix 
     print "fname",fname
-    cmd = (args.bq_location+'__--nouse_gce_service_account__--application_default_credential_file='+args.key_location+'__load__--autodetect__--noreplace__--schema_update_option=ALLOW_FIELD_ADDITION__--schema_update_option=ALLOW_FIELD_RELAXATION__--source_format=NEWLINE_DELIMITED_JSON__'+table+'__'+fname).split("__")
+    cmd = (args.bq_location+'__--nouse_gce_service_account__--application_default_credential_file='+args.key_location+'__load__--autodetect__--source_format=NEWLINE_DELIMITED_JSON__'+table+'__'+fname).split("__")
     print "cmd:",cmd
     subprocess.check_call(cmd)
 
